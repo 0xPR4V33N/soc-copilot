@@ -2,6 +2,8 @@
 
 Local, AI-assisted security event triage pipeline for Windows Sysmon logs. Built as a portfolio lab project demonstrating SOC analyst workflows, MITRE ATT&CK mapping, measurable detection performance, and privacy-preserving LLM inference.
 
+> Note: GitHub contribution filters like `contributed-by:@me` may take a few minutes to refresh after new pushes.
+
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![CI](https://img.shields.io/badge/CI-GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)](.github/workflows/ci.yml)
 [![Platform](https://img.shields.io/badge/Platform-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/windows)

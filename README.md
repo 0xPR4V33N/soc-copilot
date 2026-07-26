@@ -315,12 +315,6 @@ Action:
 
 ![Step 8 - Dashboard view](docs/screenshots/step-09-dashboard-view.png)
 
-## Suggested GitHub topics (for a professional repo look)
-
-Add these in your GitHub repo **Settings -> General -> Topics**:
-
-`soc` `cybersecurity` `threat-detection` `incident-response` `sysmon` `mitre-attack` `streamlit` `python` `llm` `security-operations`
-
 ## Full pipeline options
 
 ```powershell

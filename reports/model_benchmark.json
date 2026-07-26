@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-07-26T15:16:04.798763+00:00",
+  "input": "C:\\soc-copilot\\data\\samples\\events.json",
+  "labels": "C:\\soc-copilot\\data\\samples\\labels.json",
+  "models": [
+    {
+      "name": "sample-baseline",
+      "model_path": "precomputed",
+      "runtime_seconds": 0.0,
+      "evaluation": {
+        "evaluated": 8,
+        "severity_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "true_positive": 4,
+        "true_negative": 4,
+        "false_positive": 0,
+        "false_negative": 0
+      }
+    }
+  ]
+}

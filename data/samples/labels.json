@@ -1,0 +1,10 @@
+[
+  {"event_index": 0, "expected_severity": "low"},
+  {"event_index": 1, "expected_severity": "critical"},
+  {"event_index": 2, "expected_severity": "high"},
+  {"event_index": 3, "expected_severity": "low"},
+  {"event_index": 4, "expected_severity": "high"},
+  {"event_index": 5, "expected_severity": "low"},
+  {"event_index": 6, "expected_severity": "medium"},
+  {"event_index": 7, "expected_severity": "high"}
+]

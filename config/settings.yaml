@@ -1,0 +1,25 @@
+# AI SOC Copilot — project settings
+
+paths:
+  events_raw: data/raw/events.json
+  events_processed: data/processed/triaged.json
+  events_sample: data/samples/events.json
+  analyst_feedback: data/processed/analyst_feedback.json
+  sample_labels: data/samples/labels.json
+  mitre_index: assets/mitre_techniques.json
+  mitre_stix: mitre_attack.json
+  benchmark_output: reports/model_benchmark.json
+  summary_report: reports/portfolio_summary.md
+  portfolio_bundle: portfolio
+
+model:
+  path: models/phi3-mini-q4.gguf
+  n_ctx: 4096
+  n_threads: 6
+  max_tokens: 200
+  temperature: 0.1
+
+export:
+  max_events: 50
+  # Process Create, Network Connect, Registry Object Create/Delete, Registry Value Set
+  event_ids: [1, 3, 12, 13]

@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual environment
+venv/
+.venv/
+
+# Local data (never commit personal telemetry)
+data/raw/
+data/processed/
+
+# Legacy root-level data files
+events.json
+triaged.json
+
+# Models (download separately)
+models/*.gguf
+
+# Full MITRE STIX bundle (use assets/mitre_techniques.json instead)
+mitre_attack.json
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Generated portfolio bundles
+portfolio/bundle_*/
+portfolio/*.zip
+
+# Root-level test/scratch files
+test_llm.py
+sysmon/

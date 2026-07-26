@@ -2,13 +2,23 @@
 
 Local, AI-assisted security event triage pipeline for Windows Sysmon logs. Built as a portfolio lab project demonstrating SOC analyst workflows, MITRE ATT&CK mapping, measurable detection performance, and privacy-preserving LLM inference.
 
-[![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
-[![CI](https://img.shields.io/badge/CI-GitHub_Actions-success)](.github/workflows/ci.yml)
-[![Platform](https://img.shields.io/badge/platform-Windows-0078D6)](https://www.microsoft.com/windows)
-[![Use Case](https://img.shields.io/badge/use_case-SOC_Triage-8A2BE2)](#what-it-does)
-[![License](https://img.shields.io/badge/license-Portfolio%20%2F%20Educational-lightgrey)](#license)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![CI](https://img.shields.io/badge/CI-GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)](.github/workflows/ci.yml)
+[![Platform](https://img.shields.io/badge/Platform-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/windows)
+[![Dashboard](https://img.shields.io/badge/Dashboard-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![MITRE ATT&CK](https://img.shields.io/badge/MITRE-ATT%26CK-7A3E9D?style=for-the-badge)](https://attack.mitre.org/)
+[![Local LLM](https://img.shields.io/badge/LLM-Local_Inference-00A67E?style=for-the-badge)](#what-it-does)
+[![License](https://img.shields.io/badge/License-Portfolio%20%2F%20Educational-lightgrey?style=for-the-badge)](#license)
 
-## What it does
+![Sysmon](https://img.shields.io/badge/Telemetry-Sysmon-blueviolet?style=flat-square)
+![Rule Engine](https://img.shields.io/badge/Detection-Rule_First-orange?style=flat-square)
+![Fallback](https://img.shields.io/badge/AI-LLM_Fallback-success?style=flat-square)
+![Human Loop](https://img.shields.io/badge/Analyst-Human_in_the_Loop-00bcd4?style=flat-square)
+![Portfolio Ready](https://img.shields.io/badge/Portfolio-Ready-brightgreen?style=flat-square)
+
+[🚀 Quick Start](#section-1-what-you-need-to-install-first) · [🧪 Demo Path](#path-a-demo-mode-quickest-no-sysmon-no-model) · [🧰 Live Path](#path-b-live-mode-real-local-sysmon-telemetry) · [🖼️ Screenshots](#visual-step-by-step-with-screenshots)
+
+## 🎯 What it does
 
 ```
 Sysmon (EID 1/3/12/13)  →  export  →  parse  →  rules  →  LLM fallback  →  MITRE map  →  dashboard
@@ -20,7 +30,7 @@ Sysmon (EID 1/3/12/13)  →  export  →  parse  →  rules  →  LLM fallback  
 4. **Map** LLM technique guesses to MITRE ATT&CK IDs
 5. **Visualize** results, evaluation metrics, and analyst decisions in an interactive dashboard
 
-## Project structure
+## 🗂️ Project structure
 
 ```
 soc-copilot/
@@ -40,7 +50,7 @@ soc-copilot/
 └── assets/mitre_techniques.json  # Slim MITRE index (~800 KB)
 ```
 
-## Section 1: What you need to install first
+## 🧱 Section 1: What you need to install first
 
 This section is for first-time setup on a new Windows machine.
 
@@ -131,7 +141,7 @@ You also need:
 
 ---
 
-## Section 2: Step-by-step usage (choose your path)
+## 🚀 Section 2: Step-by-step usage (choose your path)
 
 Choose one path:
 - Path A = easiest demo for portfolio screenshots
@@ -231,7 +241,7 @@ In the same terminal where Streamlit is running, press:
 .\scripts\setup_and_run.ps1 -Mode demo -RunTests -GenerateBenchmark -GenerateReport -StartDashboard
 ```
 
-## Visual step-by-step (with screenshots)
+## 🖼️ Visual step-by-step (with screenshots)
 
 Use this section if you want a quick visual guide without reading the full setup text.
 
@@ -315,7 +325,13 @@ Action:
 
 ![Step 8 - Dashboard view](docs/screenshots/step-09-dashboard-view.png)
 
-## Full pipeline options
+## 🏷️ Suggested GitHub topics (for a professional repo look)
+
+Add these in your GitHub repo **Settings -> General -> Topics**:
+
+`soc` `cybersecurity` `threat-detection` `incident-response` `sysmon` `mitre-attack` `streamlit` `python` `llm` `security-operations`
+
+## ⚙️ Full pipeline options
 
 ```powershell
 # Build MITRE index (one-time; if mitre_attack.json is available)
@@ -325,7 +341,7 @@ python scripts/build_mitre_index.py
 python scripts/run_pipeline.py --demo
 ```
 
-## Configuration
+## 🔧 Configuration
 
 Edit `config/settings.yaml` to change:
 
@@ -333,7 +349,7 @@ Edit `config/settings.yaml` to change:
 - Model path and inference settings (`n_threads`, `temperature`)
 - Input/output file paths
 
-## Design notes
+## 🧠 Design notes
 
 - **Local-first:** Logs and LLM inference stay on your machine — useful for sensitive environments
 - **Hybrid triage:** Deterministic, high-confidence rules handle known patterns before the LLM is called
@@ -345,7 +361,7 @@ Edit `config/settings.yaml` to change:
 - **Slim MITRE index:** The full STIX bundle is not committed; a pre-built index loads in milliseconds
 - **Demo dataset:** Sanitized events include both benign activity and simulated attack patterns (encoded PowerShell, recon chain, Temp execution)
 
-## Detection rules
+## 🛡️ Detection rules
 
 - `SOC-R001` — encoded PowerShell command (`T1059.001`), critical
 - `SOC-R002` — `cmd.exe` spawning PowerShell (`T1059.001`), high
@@ -357,7 +373,7 @@ Edit `config/settings.yaml` to change:
 
 If no rule matches, the event is sent to the local LLM. This reduces unnecessary inference and avoids asking the model to identify patterns that can be detected deterministically.
 
-## Safe attack simulations
+## 🔬 Safe attack simulations
 
 The repository contains inert, sanitized Sysmon-style JSON records in `data/samples/`. They model:
 
@@ -370,7 +386,7 @@ The repository contains inert, sanitized Sysmon-style JSON records in `data/samp
 
 These samples are telemetry only; the repository does not execute the represented commands. Use `python scripts/run_pipeline.py --demo-static` to present them without Sysmon or a model.
 
-## Tests
+## ✅ Tests
 
 Run the parser, rule engine, evaluation, feedback, MITRE mapper, and hybrid pipeline tests:
 
@@ -379,7 +395,7 @@ $env:PYTHONPATH = "src"
 python -m unittest discover -s tests -v
 ```
 
-## Model benchmark (optional)
+## 📊 Model benchmark (optional)
 
 Compare your default model against another local GGUF model on the same labeled sample set:
 
@@ -397,7 +413,7 @@ $env:PYTHONPATH = "src"
 python scripts/benchmark_models.py --primary-name sample-baseline --use-triaged data\samples\triaged.json
 ```
 
-## Portfolio summary report
+## 📝 Portfolio summary report
 
 Generate a markdown report that summarizes triage volume, MITRE coverage, labeled metrics, analyst feedback, and optional benchmark results:
 
@@ -408,7 +424,7 @@ python scripts/generate_report.py
 
 This writes `reports/portfolio_summary.md`.
 
-## Build a shareable portfolio bundle
+## 📦 Build a shareable portfolio bundle
 
 ```powershell
 $env:PYTHONPATH = "src"
@@ -417,7 +433,7 @@ python scripts/build_portfolio_bundle.py --zip
 
 This collects key artifacts into `portfolio/bundle_*` and optionally creates a zip archive.
 
-## Continuous integration
+## 🔁 Continuous integration
 
 GitHub Actions workflow at `.github/workflows/ci.yml` runs on pushes and pull requests:
 
@@ -426,7 +442,14 @@ GitHub Actions workflow at `.github/workflows/ci.yml` runs on pushes and pull re
 - Execute the full unit test suite
 - Compile Python sources for syntax checks
 
-## Known limitations
+## 🎤 Publication and interview docs
+
+- Release checklist: `docs/GITHUB_RELEASE_CHECKLIST.md`
+- Interview prep: `docs/INTERVIEW_GUIDE.md`
+- Resume/LinkedIn snippets: `docs/APPLICATION_SNIPPETS.md`
+- Release notes template: `docs/RELEASE_NOTES_v1.0.0.md`
+
+## ⚠️ Known limitations
 
 - Rule coverage and the eight-event evaluation set are intentionally small; reported metrics are demonstrative, not production benchmarks
 - LLM fallback can still hallucinate on unfamiliar or ambiguous system processes
@@ -435,6 +458,6 @@ GitHub Actions workflow at `.github/workflows/ci.yml` runs on pushes and pull re
 - Model-to-model comparison requires a second local model and is not enabled by default
 - Not a replacement for enterprise SIEM/EDR tooling
 
-## License
+## 📄 License
 
 Portfolio / educational use.

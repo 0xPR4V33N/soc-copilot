@@ -426,13 +426,6 @@ GitHub Actions workflow at `.github/workflows/ci.yml` runs on pushes and pull re
 - Execute the full unit test suite
 - Compile Python sources for syntax checks
 
-## Publication and interview docs
-
-- Release checklist: `docs/GITHUB_RELEASE_CHECKLIST.md`
-- Interview prep: `docs/INTERVIEW_GUIDE.md`
-- Resume/LinkedIn snippets: `docs/APPLICATION_SNIPPETS.md`
-- Release notes template: `docs/RELEASE_NOTES_v1.0.0.md`
-
 ## Known limitations
 
 - Rule coverage and the eight-event evaluation set are intentionally small; reported metrics are demonstrative, not production benchmarks
